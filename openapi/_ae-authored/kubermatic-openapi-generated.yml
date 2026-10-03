@@ -1,0 +1,381 @@
+openapi: 3.1.0
+info:
+  title: Kubermatic API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the
+    pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - Api
+      summary: GET /
+      x-source: https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -sfL https://get.kubeone.io | sh\n The installation script downloads the release archive from GitHub, installs\nthe KubeOne\
+          \ binary in your /usr/local/bin directory and unpacks the example\nTerraform configs in your current working directory. If you want\
+          \ to inspect the\nscript before running it, you can use a command such as"
+    post:
+      operationId: post
+      tags:
+      - Api
+      summary: POST /
+      x-source: https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -s https://public.api.<DOMAIN>/.well-known/oauth-protected-resource/mcp | jq .\n The response should name your endpoint\
+          \ as the resource , and scopes_supported should include\nthe cross-client scope: {\n \"resource\" : \"https://public.api.<DOMAIN>/mcp\"\
+          \ ,\n \"bearer_methods_supported\" : [ \"header\" ],\n \"scopes_supported\" : [\n \"openid\" ,\n \"email\" ,\n \"groups\" ,\n \"audience:server:client_id:kdp-kubelogin\"\
+          \ "
+  /.well-known/oauth-protected-resource/mcp:
+    get:
+      operationId: get_well_known_oauth_protected_resource_mcp
+      tags:
+      - API
+      summary: Check that the gateway is running and serving its OAuth metadata
+      x-source: https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /api/auth/{authid}:
+    get:
+      operationId: get_api_auth_authid
+      tags:
+      - Api
+      summary: Exchanges the authorization code for tokens, verifies the ID token, and stores user info in an HTTP-only session cookie.
+      description: Handles the OIDC callback after user authentication.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: authid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 4 example path(s) differing only at authId
+  /api/clusters:
+    get:
+      operationId: get_api_clusters
+      tags:
+      - Api
+      summary: Lists all registered clusters.
+      description: Returns an array of cluster objects with id, name, and status.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiClustersResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/kubeconfig:
+    post:
+      operationId: post_api_clusters_kubeconfig
+      tags:
+      - Api
+      summary: Uploads a kubeconfig to register new clusters.
+      description: Accepts multipart/form-data; registers each context as a secret and returns details of created contexts.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiClustersKubeconfigRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiClustersKubeconfigResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/prod-us-east/kube/apis/external-secrets.io/v1/externalsecrets:
+    get:
+      operationId: get_api_clusters_prod_us_east_kube_apis_external_secrets_io_v1_externalsecrets
+      tags:
+      - Api
+      summary: Proxies a request to a specific cluster’s Kubernetes API server for ExternalSecret resources.
+      description: Returns the list of ExternalSecret resources from the cluster identified by prod-us-east.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /api/clusters/{id}:
+    delete:
+      operationId: delete_api_clusters_id
+      tags:
+      - Api
+      summary: 'Deregisters a cluster: deletes the per-cluster Secret and removes the cluster from the in-memory set.'
+      description: Cannot delete the management cluster; returns JSON with the deleted cluster id.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiClustersIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/{id}/health:
+    get:
+      operationId: get_api_clusters_id_health
+      tags:
+      - Api
+      summary: Health-checks a specific cluster by connecting to its Kubernetes API server.
+      description: Returns the health status of the specified cluster.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiClustersIdHealthResponse'
+      x-evidence:
+        kind: documentation
+  /apis/external-secrets.io/v1/externalsecrets:
+    get:
+      operationId: get_apis_external_secrets_io_v1_externalsecrets
+      tags:
+      - Apis
+      summary: Kubernetes API proxy endpoint for ExternalSecret resources on the default (management) cluster.
+      description: Lists ExternalSecret resources from the management cluster via the proxy.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /healthz:
+    get:
+      operationId: get_healthz
+      tags:
+      - Healthz
+      summary: Unauthenticated health check, used for liveness/readiness probes.
+      description: Returns a JSON object indicating the health status of the service.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHealthzResponse'
+      x-evidence:
+        kind: documentation
+  /kubermatic/kubelb/releases/download/v1.5.0/{v150id}:
+    get:
+      operationId: get_kubermatic_kubelb_releases_download_v1_5_0_v150id
+      tags:
+      - Kubermatic
+      summary: GET /kubermatic/kubelb/releases/download/v1.5.0/checksums.txt
+      x-source: https://docs.kubermatic.com/kubelb/v1.5/security
+      parameters:
+      - name: v150id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: curl -LO https://github.com/kubermatic/kubelb/releases/download/v1.5.0/checksums.txt
+        collapsed_from: 3 example path(s) differing only at v150Id
+  /kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_amd64.zip:
+    get:
+      operationId: get_kubermatic_kubeone_releases_download_v_VERSION_kubeone_VERSION_OS_amd64_zip
+      tags:
+      - Kubermatic
+      summary: GET /kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_amd64.zip
+      x-source: https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+      parameters:
+      - name: VERSION
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: VERSION
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: OS
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -LO \"https://github.com/kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_amd64.zip\"\nunzip kubeone_${VERSION}_${OS}_amd64.zip\
+          \ -d kubeone_${VERSION}_${OS}_amd64\nsudo mv kubeone_${VERSION}_${OS}_amd64/kubeone /usr/local/bin\n Using package managers Arch Linux\
+          \ KubeOne can be found in the official Arch Linux repositories .\nUse pacman or your preferred package manager to ins"
+  /mcp:
+    get:
+      operationId: get_mcp
+      tags:
+      - Mcp
+      summary: Unauthenticated request must be refused, with a challenge pointing at that metadata
+      x-source: https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /metrics:
+    get:
+      operationId: get_metrics
+      tags:
+      - Metrics
+      summary: Unauthenticated Prometheus metrics endpoint (scraped in-cluster).
+      description: Exposes Prometheus metrics; response format is plain text as defined by Prometheus.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostResponse:
+      type: object
+      properties:
+        resource:
+          type: string
+        bearer_methods_supported:
+          type: array
+          items:
+            type: string
+        scopes_supported:
+          type: array
+          items:
+            type: string
+    GetApiClustersResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Cluster identifier.
+        name:
+          type: string
+          description: Cluster name.
+        status:
+          type: string
+          description: Cluster connection status (connected, disconnected, unknown).
+    PostApiClustersKubeconfigRequest:
+      type: object
+      properties:
+        kubeconfig:
+          type: string
+          description: The kubeconfig file to upload.
+        registerAgent:
+          type: string
+          description: Set to "true" to create an SGAgent CR.
+        clusterName:
+          type: string
+          description: Name for the SGAgent (defaults to the first context).
+      required:
+      - kubeconfig
+    PostApiClustersKubeconfigResponse:
+      type: object
+      properties:
+        contexts:
+          type: array
+          description: List of context names that were registered.
+        agentCreated:
+          type: boolean
+          description: Indicates whether an SGAgent was created.
+    DeleteApiClustersIdResponse:
+      type: object
+      properties:
+        deleted:
+          type: string
+          description: The identifier of the deleted cluster.
+    GetApiClustersIdHealthResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Cluster identifier.
+        status:
+          type: string
+          description: Cluster connection status.
+    GetHealthzResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Health status, e.g., "ok".
+tags:
+- name: API
+- name: Api
+- name: Apis
+- name: Healthz
+- name: Kubermatic
+- name: Mcp
+- name: Metrics

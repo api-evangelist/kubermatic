@@ -1,23 +1,107 @@
 aid: kubermatic
+
 name: Kubermatic
-description: 'Kubermatic is a company surfaced via the API Evangelist harvest backlog (source: gartner-mq)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://www.kubermatic.com/images/Kubermatic-share.jpg
+
+description: Kubermatic provides a multi‑cloud Kubernetes management platform that enables enterprises to deploy, operate, and scale Kubernetes
+  clusters across any infrastructure—public clouds, on‑premises data centers, and edge environments. The solution includes automated provisioning,
+  lifecycle management, security controls, and integrated AI‑driven optimization for workloads. Kubermatic is recognized in the 2026 Gartner Magic
+  Quadrant for Container Management and offers products such as Kubermatic Kubernetes Platform, Kubermatic AI, KubeLB, and SecureGuard.
+
 url: https://raw.githubusercontent.com/api-evangelist/kubermatic/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:gartner-mq
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-03 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-03'
+
 modified: '2026-10-03'
+
 tags:
 - Company
-apis: []
+- Kubernetes
+- Multi-Cloud
+- Platform
+- AI
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/kubermatic-rules.yml
+- type: JSONLD
+  url: json-ld/kubermatic-context.jsonld
+- type: Vocabulary
+  url: vocabulary/kubermatic-vocabulary.yml
+- type: DataModel
+  url: data-model/kubermatic-data-model.yml
+- type: Conformance
+  url: conformance/kubermatic-conformance.yml
+- type: LLMsTxt
+  url: llms/kubermatic-llms.txt
+- type: Hosts
+  url: hosts/kubermatic-hosts.yml
+- type: Vendors
+  url: vendors/kubermatic-vendors.yml
+- type: Security
+  url: https://www.kubermatic.com/tags/security/
+- type: GettingStarted
+  url: https://docs.kubermatic.com/secureguard/main/getting-started/
+- type: DomainSecurity
+  url: security/kubermatic-domain-security.yml
 - type: Website
   url: https://www.kubermatic.com
+- type: Documentation
+  url: https://docs.kubermatic.com
+- type: Blog
+  url: https://www.kubermatic.com/blog
+
+apis:
+- aid: kubermatic:kubermatic-api
+  name: Kubermatic API
+  description: 'Kubermatic API as documented publicly: 15 operations. Contract generated from the documentation by API Evangelist (2026-10-03);
+    not the provider''s own document.'
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/kubermatic-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: No OpenAPI, GraphQL, AsyncAPI, gRPC, or WSDL files were found on the provider's documentation or API hosts.
+  evidence:
+  - url: https://docs.kubermatic.com
+    status: 200
+  checked: '2026-10-03'
+x-enrichment:
+  date: '2026-10-03'
+  status: enriched
+  artifacts_added: 19
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

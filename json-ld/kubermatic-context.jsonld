@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "@vocab": "https://kubermatic.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "kubermatic": "https://kubermatic.com/schema#",
+    "PostResponse": "kubermatic:PostResponse",
+    "resource": {
+      "@id": "kubermatic:resource",
+      "@type": "xsd:string"
+    },
+    "bearer_methods_supported": {
+      "@id": "kubermatic:bearer_methods_supported",
+      "@container": "@list"
+    },
+    "scopes_supported": {
+      "@id": "kubermatic:scopes_supported",
+      "@container": "@list"
+    },
+    "GetApiClustersResponse": "kubermatic:GetApiClustersResponse",
+    "id": {
+      "@id": "kubermatic:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "kubermatic:name",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "kubermatic:status",
+      "@type": "xsd:string"
+    },
+    "PostApiClustersKubeconfigRequest": "kubermatic:PostApiClustersKubeconfigRequest",
+    "kubeconfig": {
+      "@id": "kubermatic:kubeconfig",
+      "@type": "xsd:string"
+    },
+    "registerAgent": {
+      "@id": "kubermatic:registerAgent",
+      "@type": "xsd:string"
+    },
+    "clusterName": {
+      "@id": "kubermatic:clusterName",
+      "@type": "xsd:string"
+    },
+    "PostApiClustersKubeconfigResponse": "kubermatic:PostApiClustersKubeconfigResponse",
+    "contexts": {
+      "@id": "kubermatic:contexts",
+      "@container": "@list"
+    },
+    "agentCreated": {
+      "@id": "kubermatic:agentCreated",
+      "@type": "xsd:boolean"
+    },
+    "DeleteApiClustersIdResponse": "kubermatic:DeleteApiClustersIdResponse",
+    "deleted": {
+      "@id": "kubermatic:deleted",
+      "@type": "xsd:string"
+    },
+    "GetApiClustersIdHealthResponse": "kubermatic:GetApiClustersIdHealthResponse",
+    "GetHealthzResponse": "kubermatic:GetHealthzResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Kubermatic API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Kubermatic's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-03) from openapi/_ae-authored/kubermatic-openapi-generated.yml.",
+  "dcterms:created": "2026-10-03",
+  "dcterms:source": [
+    "openapi/_ae-authored/kubermatic-openapi-generated.yml"
+  ]
+}

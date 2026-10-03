@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/kubermatic/main/json-schema/kubermatic-get-api-clusters-response-schema.json",
+  "title": "GetApiClustersResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/kubermatic-openapi-generated.yml#/components/schemas/GetApiClustersResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Cluster identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Cluster name."
+    },
+    "status": {
+      "type": "string",
+      "description": "Cluster connection status (connected, disconnected, unknown)."
+    }
+  }
+}

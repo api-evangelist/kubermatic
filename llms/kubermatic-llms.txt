@@ -1,0 +1,36 @@
+# Kubermatic Docs
+
+> Official Kubermatic Documentation
+
+> Last updated: 2026-10-02
+> Products: 8
+
+## Products
+
+- [Kubermatic Kubernetes Platform](https://docs.kubermatic.com/kubermatic/v2.31/llms.txt): Automate multicloud, on-prem, and edge operations with a single management UI enabling you to deliver the cloud native transformation immediately.
+
+- [Kubermatic-Virtualization](https://docs.kubermatic.com/kubermatic-virtualization/v1.2.0/llms.txt): Seamlessly modernize your infrastructure by building your private cloud entirely with Kubernetes.
+
+- [KubeOne](https://docs.kubermatic.com/kubeone/v1.14/llms.txt): Automate operations of a single Kubernetes cluster on your chosen cloud, on-prem, or edge environment.
+
+- [KubeLB](https://docs.kubermatic.com/kubelb/v1.5/llms.txt): Centralize multi-tenant Layer 4 and Layer 7 load balancing for Kubernetes clusters across cloud, on-premises, and bare-metal environments.
+
+- [Kubermatic Developer Platform](https://docs.kubermatic.com/developer-platform/v1.2/llms.txt): Provision and manage all services from a single centralized catalog - powered by Kubernetes-style APIs.
+
+- [Operating System Manager](https://docs.kubermatic.com/operatingsystemmanager/llms.txt): Operating System Manager is responsible for creating and managing the required configurations for worker nodes in a Kubernetes cluster.
+
+- [Machine Controller](https://docs.kubermatic.com/machine-controller/main/llms.txt): Manage machines at cloud providers using a declarative Kubernetes API, compatible with the Kubernetes cluster-autoscaler.
+
+- [Conformance EE](https://docs.kubermatic.com/conformance-ee/main/llms.txt): Automated end-to-end conformance test framework for Kubermatic Kubernetes Platform, generating and running thousands of test scenarios across cloud providers.
+
+
+## Full and current documentation for each product
+
+- https://docs.kubermatic.com/kubermatic/latest/llms-full.txt
+- https://docs.kubermatic.com/kubermatic-virtualization/latest/llms-full.txt
+- https://docs.kubermatic.com/kubeone/latest/llms-full.txt
+- https://docs.kubermatic.com/kubelb/latest/llms-full.txt
+- https://docs.kubermatic.com/developer-platform/latest/llms-full.txt
+- https://docs.kubermatic.com/operatingsystemmanager/llms-full.txt
+- https://docs.kubermatic.com/machine-controller/main/llms-full.txt
+- https://docs.kubermatic.com/conformance-ee/main/llms-full.txt

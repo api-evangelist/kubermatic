@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/kubermatic/main/json-schema/kubermatic-delete-api-clusters-id-response-schema.json",
+  "title": "DeleteApiClustersIdResponse",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/kubermatic-openapi-generated.yml#/components/schemas/DeleteApiClustersIdResponse",
+  "type": "object",
+  "properties": {
+    "deleted": {
+      "type": "string",
+      "description": "The identifier of the deleted cluster."
+    }
+  }
+}
