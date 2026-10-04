@@ -68,16 +68,16 @@ common:
   url: https://www.kubermatic.com/blog
 
 apis:
-- aid: kubermatic:kubermatic-api
-  name: Kubermatic API
-  description: 'Kubermatic API as documented publicly: 15 operations. Contract generated from the documentation by API Evangelist (2026-10-03);
-    not the provider''s own document.'
+- aid: kubermatic:kubermatic-apis-api
+  name: Kubermatic APIs API
+  description: The Apis API from Kubermatic — 1 operation(s) for apis.
   humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
   baseURL: https://github.com
+  tags:
+  - Apis
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/kubermatic-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/kubermatic-apis-api-openapi.yml
   - type: JSONSchema
     url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
   - type: JSONSchema
@@ -90,7 +90,182 @@ apis:
     url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
   - type: JSONSchema
     url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
-
+- aid: kubermatic:kubermatic-auth-api
+  name: Kubermatic Auth API
+  description: The Auth API from Kubermatic — 1 operation(s) for auth.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-auth-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-clusters-api
+  name: Kubermatic Clusters API
+  description: The Clusters API from Kubermatic — 5 operation(s) for clusters.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-clusters-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-healthz-api
+  name: Kubermatic Healthz API
+  description: The Healthz API from Kubermatic — 1 operation(s) for healthz.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Healthz
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-healthz-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-kubermatic-api-api
+  name: Kubermatic Kubermatic API
+  description: The Kubermatic API API from Kubermatic — 1 operation(s) for kubermatic api.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Kubermatic API
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-kubermatic-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-kubermatic-api
+  name: Kubermatic Kubermatic API
+  description: The Kubermatic API from Kubermatic — 2 operation(s) for kubermatic.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Kubermatic
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-kubermatic-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-mcp-api
+  name: Kubermatic MCP API
+  description: The Mcp API from Kubermatic — 1 operation(s) for mcp.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-mcp-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-metrics-api
+  name: Kubermatic Metrics API
+  description: The Metrics API from Kubermatic — 1 operation(s) for metrics.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-metrics-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
+- aid: kubermatic:kubermatic-well-known-api
+  name: Kubermatic .well Known API
+  description: The .well Known API from Kubermatic — 1 operation(s) for .well known.
+  humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
+  baseURL: https://github.com
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/kubermatic-well-known-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-request-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-api-clusters-kubeconfig-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-post-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-get-api-clusters-id-health-response-schema.json
+  - type: JSONSchema
+    url: json-schema/kubermatic-delete-api-clusters-id-response-schema.json
 x-coverage:
   state: unreadable
   reason: no-machine-readable-spec

@@ -1,0 +1,52 @@
+openapi: 3.2.0
+info:
+  title: Kubermatic Healthz API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+tags:
+- name: Healthz
+paths:
+  /healthz:
+    get:
+      operationId: get_healthz
+      tags:
+      - Healthz
+      summary: Unauthenticated health check, used for liveness/readiness probes
+      description: Returns a JSON object indicating the health status of the service.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHealthzResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetHealthzResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Health status, e.g., "ok".

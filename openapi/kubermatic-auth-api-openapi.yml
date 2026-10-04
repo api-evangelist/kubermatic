@@ -1,0 +1,47 @@
+openapi: 3.2.0
+info:
+  title: Kubermatic Auth API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+tags:
+- name: Auth
+paths:
+  /api/auth/{authid}:
+    get:
+      operationId: get_api_auth_authid
+      tags:
+      - Auth
+      summary: Exchanges the authorization code for tokens, verifies the ID token, and stores…
+      description: Handles the OIDC callback after user authentication.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: authid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 4 example path(s) differing only at authId

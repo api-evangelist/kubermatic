@@ -1,0 +1,178 @@
+openapi: 3.2.0
+info:
+  title: Kubermatic Clusters API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+tags:
+- name: Clusters
+paths:
+  /api/clusters:
+    get:
+      operationId: get_api_clusters
+      tags:
+      - Clusters
+      summary: Lists all registered clusters
+      description: Returns an array of cluster objects with id, name, and status.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiClustersResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/kubeconfig:
+    post:
+      operationId: post_api_clusters_kubeconfig
+      tags:
+      - Clusters
+      summary: Uploads a kubeconfig to register new clusters
+      description: Accepts multipart/form-data; registers each context as a secret and returns details of created contexts.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiClustersKubeconfigRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiClustersKubeconfigResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/prod-us-east/kube/apis/external-secrets.io/v1/externalsecrets:
+    get:
+      operationId: get_api_clusters_prod_us_east_kube_apis_external_secrets_io_v1_externalsecrets
+      tags:
+      - Clusters
+      summary: Proxies a request to a specific cluster’s Kubernetes API server for…
+      description: Returns the list of ExternalSecret resources from the cluster identified by prod-us-east.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /api/clusters/{id}:
+    delete:
+      operationId: delete_api_clusters_id
+      tags:
+      - Clusters
+      summary: 'Deregisters a cluster: deletes the per-cluster Secret and removes the cluster…'
+      description: Cannot delete the management cluster; returns JSON with the deleted cluster id.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiClustersIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/clusters/{id}/health:
+    get:
+      operationId: get_api_clusters_id_health
+      tags:
+      - Clusters
+      summary: Health-checks a specific cluster by connecting to its Kubernetes API server
+      description: Returns the health status of the specified cluster.
+      x-source: https://docs.kubermatic.com/secureguard/main/api-reference
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiClustersIdHealthResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetApiClustersResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Cluster identifier.
+        name:
+          type: string
+          description: Cluster name.
+        status:
+          type: string
+          description: Cluster connection status (connected, disconnected, unknown).
+    PostApiClustersKubeconfigRequest:
+      type: object
+      properties:
+        kubeconfig:
+          type: string
+          description: The kubeconfig file to upload.
+        registerAgent:
+          type: string
+          description: Set to "true" to create an SGAgent CR.
+        clusterName:
+          type: string
+          description: Name for the SGAgent (defaults to the first context).
+      required:
+      - kubeconfig
+    PostApiClustersKubeconfigResponse:
+      type: object
+      properties:
+        contexts:
+          type: array
+          description: List of context names that were registered.
+        agentCreated:
+          type: boolean
+          description: Indicates whether an SGAgent was created.
+    GetApiClustersIdHealthResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Cluster identifier.
+        status:
+          type: string
+          description: Cluster connection status.
+    DeleteApiClustersIdResponse:
+      type: object
+      properties:
+        deleted:
+          type: string
+          description: The identifier of the deleted cluster.

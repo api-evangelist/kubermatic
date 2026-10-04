@@ -1,0 +1,39 @@
+{
+  "provider": "kubermatic",
+  "sources": [
+    "_ae-authored/kubermatic-openapi-generated.yml"
+  ],
+  "outputs": [
+    "kubermatic-well-known-api-openapi.yml",
+    "kubermatic-apis-api-openapi.yml",
+    "kubermatic-auth-api-openapi.yml",
+    "kubermatic-clusters-api-openapi.yml",
+    "kubermatic-healthz-api-openapi.yml",
+    "kubermatic-kubermatic-api-openapi.yml",
+    "kubermatic-kubermatic-api-api-openapi.yml",
+    "kubermatic-mcp-api-openapi.yml",
+    "kubermatic-metrics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "kubermatic-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "kubermatic-openapi-generated.yml: tagged paths GET / -> Kubermatic API",
+    "kubermatic-openapi-generated.yml: tagged paths POST / -> Kubermatic API",
+    "kubermatic-openapi-generated.yml: tagged paths GET /.well-known/oauth-protected-resource/mcp -> .well Known",
+    "kubermatic-openapi-generated.yml: tagged paths GET /api/auth/{authid} -> Auth",
+    "kubermatic-openapi-generated.yml: tagged paths GET /api/clusters -> Clusters",
+    "kubermatic-openapi-generated.yml: tagged paths POST /api/clusters/kubeconfig -> Clusters",
+    "kubermatic-openapi-generated.yml: tagged paths GET /api/clusters/prod-us-east/kube/apis/external-secrets.io/v1/externalsecrets -> Clusters",
+    "kubermatic-openapi-generated.yml: tagged paths DELETE /api/clusters/{id} -> Clusters",
+    "kubermatic-openapi-generated.yml: tagged paths GET /api/clusters/{id}/health -> Clusters",
+    "kubermatic-openapi-generated.yml: declared missing tag: .well Known",
+    "kubermatic-openapi-generated.yml: declared missing tag: Auth",
+    "kubermatic-openapi-generated.yml: declared missing tag: Clusters",
+    "kubermatic-openapi-generated.yml: declared missing tag: Kubermatic API",
+    "apis.yml register: written (+9 apis, 9 total)"
+  ],
+  "skipped": []
+}

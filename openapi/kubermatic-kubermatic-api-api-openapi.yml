@@ -1,0 +1,73 @@
+openapi: 3.2.0
+info:
+  title: Kubermatic API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+tags:
+- name: Kubermatic API
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - Kubermatic API
+      summary: GET /
+      x-source: https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -sfL https://get.kubeone.io | sh\n The installation script downloads the release archive from GitHub, installs\nthe KubeOne binary in your /usr/local/bin directory and unpacks the example\nTerraform configs in your current working directory. If you want to inspect the\nscript before running it, you can use a command such as"
+    post:
+      operationId: post
+      tags:
+      - Kubermatic API
+      summary: POST /
+      x-source: https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -s https://public.api.<DOMAIN>/.well-known/oauth-protected-resource/mcp | jq .\n The response should name your endpoint as the resource , and scopes_supported should include\nthe cross-client scope: {\n \"resource\" : \"https://public.api.<DOMAIN>/mcp\" ,\n \"bearer_methods_supported\" : [ \"header\" ],\n \"scopes_supported\" : [\n \"openid\" ,\n \"email\" ,\n \"groups\" ,\n \"audience:server:client_id:kdp-kubelogin\" "
+components:
+  schemas:
+    PostResponse:
+      type: object
+      properties:
+        resource:
+          type: string
+        bearer_methods_supported:
+          type: array
+          items:
+            type: string
+        scopes_supported:
+          type: array
+          items:
+            type: string

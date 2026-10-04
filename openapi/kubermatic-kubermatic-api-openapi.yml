@@ -1,0 +1,78 @@
+openapi: 3.2.0
+info:
+  title: Kubermatic API
+  version: '2026-10-03'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-03: 15 operation(s) read from 5 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Kubermatic has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 6
+    documentation: 9
+    pages-with-code: 4
+    pages-read: 5
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-03'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.kubermatic.com/kubelb/v1.5/security
+  - https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+  - https://docs.kubermatic.com/secureguard/main/api-reference
+  - https://docs.kubermatic.com/developer-platform/v1.2/setup/mcp-gateway
+  - https://docs.kubermatic.com/kubeone/v1.14/tutorials/creating-clusters
+servers:
+- url: https://github.com
+tags:
+- name: Kubermatic
+paths:
+  /kubermatic/kubelb/releases/download/v1.5.0/{v150id}:
+    get:
+      operationId: get_kubermatic_kubelb_releases_download_v1_5_0_v150id
+      tags:
+      - Kubermatic
+      summary: GET /kubermatic/kubelb/releases/download/v1.5.0/checksums.txt
+      x-source: https://docs.kubermatic.com/kubelb/v1.5/security
+      parameters:
+      - name: v150id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: curl -LO https://github.com/kubermatic/kubelb/releases/download/v1.5.0/checksums.txt
+        collapsed_from: 3 example path(s) differing only at v150Id
+  /kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_amd64.zip:
+    get:
+      operationId: get_kubermatic_kubeone_releases_download_v_VERSION_kubeone_VERSION_OS_amd64_zip
+      tags:
+      - Kubermatic
+      summary: GET /kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_a…
+      x-source: https://docs.kubermatic.com/kubeone/v1.14/getting-kubeone
+      parameters:
+      - name: VERSION
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: VERSION
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: OS
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -LO \"https://github.com/kubermatic/kubeone/releases/download/v${VERSION}/kubeone_${VERSION}_${OS}_amd64.zip\"\nunzip kubeone_${VERSION}_${OS}_amd64.zip -d kubeone_${VERSION}_${OS}_amd64\nsudo mv kubeone_${VERSION}_${OS}_amd64/kubeone /usr/local/bin\n Using package managers Arch Linux KubeOne can be found in the official Arch Linux repositories .\nUse pacman or your preferred package manager to ins"
