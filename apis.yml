@@ -29,6 +29,12 @@ tags:
 - Kubernetes
 - Multi-Cloud
 - Platform
+- Artificial Intelligence
+tags_raw:
+- Company
+- Kubernetes
+- Multi-Cloud
+- Platform
 - AI
 
 maintainers:
@@ -73,7 +79,8 @@ apis:
   description: The Apis API from Kubermatic — 1 operation(s) for apis.
   humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
   baseURL: https://github.com
-  tags:
+  tags: []
+  tags_raw:
   - Apis
   properties:
   - type: OpenAPI
@@ -96,6 +103,8 @@ apis:
   humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
   baseURL: https://github.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -118,6 +127,8 @@ apis:
   humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
   baseURL: https://github.com
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -206,6 +217,8 @@ apis:
   humanURL: https://docs.kubermatic.com/kubelb/v1.5/security
   baseURL: https://github.com
   tags:
+  - MCP
+  tags_raw:
   - Mcp
   properties:
   - type: OpenAPI
